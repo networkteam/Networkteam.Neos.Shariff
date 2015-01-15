@@ -1,10 +1,10 @@
 Networkteam.Neos.Shariff
 ========================
 
-Social plugins are on every page, but if you have concerns about privacy o you visitors it is not that easy to integrate
-them. The german computer magazin C`t created together with the publisher heise a general solution also providing
-the number of shares each social button counts can be shown. This is accomplished by using the server of the website
-as proxy for the visitors. http://ct.de/-2467514
+Social plugins are on every page today, but if you have concerns about privacy of your visitors it is not that easy
+to integrate them. The german computer magazin C`t created together with the publisher heise a general solution 
+also providing the number of shares each social button counts can be shown. This is accomplished by using the 
+server of the website as proxy for the visitors. http://ct.de/-2467514
 
 This plugin integrates shariff into neos with a few simple steps.
 
@@ -44,7 +44,7 @@ inside the plugin.
 Usage via TypoScript 2
 ----------------------
 
-Inn the TypoScript2 Object define a property which should contain the social plugins like this:
+In the TypoScript2 Object define a property which should contain the social plugins like this:
     
     prototype(My.Awesome.Package:Post) {
         socialButtons = Networkteam.Neos.Shariff:Shariff
