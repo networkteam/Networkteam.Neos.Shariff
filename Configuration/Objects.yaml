@@ -1,0 +1,4 @@
+Heise\Shariff\Backend:
+  arguments:
+    1:
+      setting: Networkteam.Neos.Shariff.options

@@ -1,0 +1,27 @@
+TYPO3:
+  Flow:
+    object:
+      excludeClasses:
+        'zendframework.zendcache': ['.*']
+        'zendframework.zendconfig': ['.*']
+        'zendframework.zendcode': ['.*']
+Networkteam:
+  Neos:
+    Shariff:
+      frontend:
+        theme: standard
+        orientation: horizontal
+        language: en
+      options:
+        domain: 'your-domain.tld'
+        cache:
+          ttl: 1
+        services:
+          - Facebook
+          - GooglePlus
+          - Twitter
+          - LinkedIn
+          - Reddit
+          - StumbleUpon
+          - Flattr
+          - Pinterest

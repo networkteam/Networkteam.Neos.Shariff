@@ -1,0 +1,31 @@
+prototype(TYPO3.Neos:Page) {
+	body.javascripts {
+		shariff = TYPO3.TypoScript:Tag {
+			tagName = 'script'
+			attributes {
+				src = TYPO3.TypoScript:ResourceUri {
+					path = 'resource://Networkteam.Neos.Shariff/Public/Scripts/shariff.min.js'
+				}
+			}
+		}
+	}
+
+	head.stylesheets {
+		shariff = TYPO3.TypoScript:Tag {
+			tagName = 'link'
+			attributes {
+				rel = 'stylesheet'
+				href = TYPO3.TypoScript:ResourceUri {
+					path = 'resource://Networkteam.Neos.Shariff/Public/Css/shariff.complete.css'
+				}
+			}
+		}
+	}
+}
+
+prototype(Networkteam.Neos.Shariff:Shariff) {
+	services = ${'"' + String.toLowerCase(Array.join(Configuration.setting('Networkteam.Neos.Shariff.options.services'),'","')) + '"'}
+	theme = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.theme')}
+	orientation = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.orientation')}
+	language = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.language')}
+}

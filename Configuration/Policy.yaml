@@ -1,0 +1,8 @@
+resources:
+  methods:
+    Networkteam_Neos_Shariff_Backend: 'method(Networkteam\Neos\Shariff\Controller\ShariffController->countsAction())'
+
+acls:
+  Everybody:
+    methods:
+      Networkteam_Neos_Shariff_Backend: GRANT

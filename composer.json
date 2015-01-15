@@ -1,0 +1,23 @@
+{
+    "name": "networkteam/neos-shariff",
+    "type": "typo3-flow-plugin",
+    "description": "Integrate shariff, social buttons with privacy",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Soeren Rohweder",
+            "email": "soeren.rohweder@networkteam.com"
+        }
+    ],
+    "require": {
+        "typo3/flow": "*",
+        "heise/shariff": "~1.1.1",
+        "zendframework/zend-server": "~2.3.3",
+        "zendframework/zend-di": "~2.3.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Networkteam\\Neos\\Shariff": "Classes"
+        }
+    }
+}

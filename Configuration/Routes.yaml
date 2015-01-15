@@ -1,0 +1,9 @@
+-
+  name:  'shariff'
+  uriPattern: 'counts'
+  defaults:
+    '@package':    'Networkteam.Neos.Shariff'
+    '@controller': 'Shariff'
+    '@action':     'counts'
+    '@format':     'json'
+  appendExceedingArguments: true
