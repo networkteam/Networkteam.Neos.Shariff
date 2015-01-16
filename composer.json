@@ -11,7 +11,7 @@
     ],
     "require": {
         "typo3/flow": "*",
-        "heise/shariff": "~1.2.0",
+        "heise/shariff": "~1.2",
         "zendframework/zend-server": "~2.3.3",
         "zendframework/zend-di": "~2.3.3"
     },
