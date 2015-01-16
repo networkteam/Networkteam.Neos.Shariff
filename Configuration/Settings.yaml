@@ -5,10 +5,11 @@ TYPO3:
         'zendframework.zendcache': ['.*']
         'zendframework.zendconfig': ['.*']
         'zendframework.zendcode': ['.*']
-Neos:
-  typoScript:
-    autoinclude:
-      'Networkteam.Neos.Shariff': TRUE
+  Neos:
+    typoScript:
+      autoInclude:
+        'Networkteam.Neos.Shariff': TRUE
+
 Networkteam:
   Neos:
     Shariff:
