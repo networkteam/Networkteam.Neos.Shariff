@@ -5,6 +5,10 @@ TYPO3:
         'zendframework.zendcache': ['.*']
         'zendframework.zendconfig': ['.*']
         'zendframework.zendcode': ['.*']
+Neos:
+  typoScript:
+    autoinclude:
+      'Networkteam.Neos.Shariff': TRUE
 Networkteam:
   Neos:
     Shariff:
@@ -17,11 +21,12 @@ Networkteam:
         cache:
           ttl: 1
         services:
-          - Facebook
-          - GooglePlus
-          - Twitter
-          - LinkedIn
-          - Reddit
-          - StumbleUpon
-          - Flattr
-          - Pinterest
+#          - Facebook
+#          - GooglePlus
+#          - Twitter
+#          - LinkedIn
+#          - Reddit
+#          - StumbleUpon
+#          - Flattr
+#          - Pinterest
+#          - Xing
