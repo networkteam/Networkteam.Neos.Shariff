@@ -5,6 +5,11 @@ TYPO3:
         'zendframework.zendcache': ['.*']
         'zendframework.zendconfig': ['.*']
         'zendframework.zendcode': ['.*']
+        'react.promise': ['.*']
+    reflection:
+      ignoredTags:
+        unstable: 'unstable'
+
   Neos:
     typoScript:
       autoInclude:
