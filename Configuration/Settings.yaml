@@ -6,7 +6,7 @@ TYPO3:
         'zendframework.zendconfig': ['.*']
         'zendframework.zendcode': ['.*']
         'react.promise': ['.*']
-	'zendframework.zendmath': ['.*']
+        'zendframework.zendmath': ['.*']
     reflection:
       ignoredTags:
         unstable: 'unstable'
