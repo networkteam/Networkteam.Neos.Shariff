@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "typo3/flow": "*",
+        "typo3/neos": "*",
         "heise/shariff": "~1.2",
         "zendframework/zend-server": "~2.3.3",
         "zendframework/zend-di": "~2.3.3"
