@@ -1,8 +1,11 @@
-resources:
-  methods:
-    Networkteam_Neos_Shariff_Backend: 'method(Networkteam\Neos\Shariff\Controller\ShariffController->countsAction())'
 
-acls:
-  Everybody:
-    methods:
-      Networkteam_Neos_Shariff_Backend: GRANT
+privilegeTargets:
+  TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+    Networkteam_Neos_Shariff_Backend:
+      matcher: method(Networkteam\Neos\Shariff\Controller\ShariffController->countsAction())
+roles:
+  'TYPO3.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: Networkteam_Neos_Shariff_Backend
+        permission: GRANT
