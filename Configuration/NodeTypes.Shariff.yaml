@@ -1,6 +1,7 @@
+
 'Networkteam.Neos.Shariff:Shariff':
   superTypes:
-    - 'TYPO3.Neos:Content'
+    'TYPO3.Neos:Content': true
   ui:
     label: 'Social Plugins'
-    icon: 'icon-ellipsis-horizontal'
+    icon: icon-ellipsis-horizontal
