@@ -4,7 +4,7 @@ prototype(TYPO3.Neos:Page) {
 			tagName = 'script'
 			attributes {
 				src = TYPO3.TypoScript:ResourceUri {
-					path = 'resource://Networkteam.Neos.Shariff/Public/Scripts/shariff.min.js'
+					path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.min.js'
 				}
 			}
 		}
@@ -16,7 +16,7 @@ prototype(TYPO3.Neos:Page) {
 			attributes {
 				rel = 'stylesheet'
 				href = TYPO3.TypoScript:ResourceUri {
-					path = 'resource://Networkteam.Neos.Shariff/Public/Css/shariff.complete.css'
+					path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.complete.css'
 				}
 			}
 		}

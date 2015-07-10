@@ -2,11 +2,11 @@ Networkteam.Neos.Shariff
 ========================
 
 Social plugins are on every page today, but if you have concerns about privacy of your visitors it is not that easy
-to integrate them. The german computer magazin C`t created together with the publisher heise a general solution 
-also providing the number of shares each social button counts can be shown. This is accomplished by using the 
-server of the website as proxy for the visitors. http://ct.de/-2467514
+to integrate them. The german publisher Heise created a general solution that allows to show the counts for each share
+while preserving the privacy of website visitory. This is accomplished by using the server of the website as proxy for
+the visitors. http://ct.de/-2467514
 
-This plugin integrates shariff into neos with a few simple steps.
+This plugin integrates Shariff into Neos with a few simple steps.
 
 Installation:
 -------------
@@ -16,9 +16,8 @@ Installation:
 Configuration:
 --------------
 
-Include the routing from the package to enable shariff to communicate to the server to fetch the counts.
+Include the package routes in your *global* `Routes.yaml` for fetching the counts via AJAX:
 
-    Routes.yaml
     -
       name: 'NetworkteamNeosShariff'
       uriPattern: 'shariff/<NetworkteamNeosShariffSubroutes>'
@@ -26,30 +25,37 @@ Include the routing from the package to enable shariff to communicate to the ser
         NetworkteamNeosShariffSubroutes:
           package: Networkteam.Neos.Shariff
 
+Configure the list of services to show in a `Settings.yaml` (e.g. in your site package):
 
-Next you need to configure the domain this site runs on, this is to prevent using you server as open relay for the 
-requests.
-
-
-    Settings.yaml
     Networkteam:
       Neos:
-        Sharrif:
+        Shariff:
           options:
-            domain: <your domain name here>
+            services:
+              - WhatsApp
+              - Twitter
+              - Facebook
+              - GooglePlus
+              - Pinterest
+              - Mail
 
-There are more options here, for example to configure which plugins to show, for more settings check the Settings.yaml
-inside the plugin.
+See `Configuration/Settings.yaml` for more information about possible options.
 
-Usage via TypoScript 2
-----------------------
+Usage:
+------
 
-In the TypoScript2 Object define a property which should contain the social plugins like this:
-    
+This package contains a simple Node Type `Networkteam.Neos.Shariff:Shariff` that renders social
+share buttons via Shariff. Just add a new node of this type to a document in the Neos backend.
+
+Usage via TypoScript:
+---------------------
+
+In your prototype define a property which renders the social plugins like this:
+
     prototype(My.Awesome.Package:Post) {
         socialButtons = Networkteam.Neos.Shariff:Shariff
     }
-    
-Then in the corresponding Template render the path like this
+
+Then in the corresponding template render the path like this:
 
     {socialButtons -> f:format.raw()}

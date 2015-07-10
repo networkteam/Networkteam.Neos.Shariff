@@ -25,9 +25,9 @@ Networkteam:
         orientation: horizontal
         language: en
       options:
-        domain: 'your-domain.tld'
+        domain: ~
         cache:
-          ttl: 1
+          ttl: 3600
         services:
 #          - Facebook
 #          - GooglePlus

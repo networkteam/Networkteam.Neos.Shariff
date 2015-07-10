@@ -1,4 +1,3 @@
-
 'Networkteam.Neos.Shariff:Shariff':
   superTypes:
     'TYPO3.Neos:Content': true

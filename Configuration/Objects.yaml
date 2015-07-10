@@ -1,4 +1,4 @@
 Heise\Shariff\Backend:
-  arguments:
-    1:
-      setting: Networkteam.Neos.Shariff.options
+  scope: singleton
+  factoryObjectName: Networkteam\Neos\Shariff\BackendFactory
+  factoryMethodName: create
