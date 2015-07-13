@@ -23,9 +23,35 @@ prototype(TYPO3.Neos:Page) {
 	}
 }
 
-prototype(Networkteam.Neos.Shariff:Shariff) {
-	services = ${'"' + String.toLowerCase(Array.join(Configuration.setting('Networkteam.Neos.Shariff.options.services'),'","')) + '"'}
+prototype(Networkteam.Neos.Shariff:Shariff) < prototype(TYPO3.TypoScript:Tag) {
+	// API
+	services = ${Configuration.setting('Networkteam.Neos.Shariff.options.services')}
 	theme = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.theme')}
 	orientation = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.orientation')}
 	language = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.language')}
+
+	attributes {
+		class = 'shariff'
+		data-backend-url = TYPO3.TypoScript:UriBuilder {
+			package = 'Networkteam.Neos.Shariff'
+			format = 'json'
+			controller = 'Shariff'
+			action = 'counts'
+		}
+		data-services = ${String.toLowerCase(Json.stringify(services))}
+		data-theme = ${theme}
+		data-orientation = ${orientation}
+		data-lang = ${language}
+
+		// Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
+	}
+
+	// Internal
+	@override.services = ${this.services}
+	@override.theme = ${this.theme}
+	@override.orientation = ${this.orientation}
+	@override.language = ${this.language}
+
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+	@exceptionHandler = 'TYPO3\\Neos\\TypoScript\\ExceptionHandlers\\NodeWrappingHandler'
 }
