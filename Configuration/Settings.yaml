@@ -11,6 +11,7 @@ TYPO3:
     reflection:
       ignoredTags:
         unstable: 'unstable'
+	returns: 'returns'
 
   Neos:
     typoScript:
