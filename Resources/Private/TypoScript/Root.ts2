@@ -55,3 +55,7 @@ prototype(Networkteam.Neos.Shariff:Shariff) < prototype(TYPO3.TypoScript:Tag) {
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 	@exceptionHandler = 'TYPO3\\Neos\\TypoScript\\ExceptionHandlers\\NodeWrappingHandler'
 }
+
+prototype(Networkteam.Neos.Shariff:ShariffContainer) {
+	shariffTag = Networkteam.Neos.Shariff:Shariff
+}

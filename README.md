@@ -44,11 +44,11 @@ See `Configuration/Settings.yaml` for more information about possible options.
 Usage:
 ------
 
-This package contains a simple Node Type `Networkteam.Neos.Shariff:Shariff` that renders social
-share buttons via Shariff. Just add a new node of this type to a document in the Neos backend.
+This package contains two simple Node Types. `Networkteam.Neos.Shariff:Shariff` renders social
+share buttons via Shariff. `Networkteam.Neos.Shariff:ShariffContainer` wraps `Networkteam.Neos.Shariff:Shariff` in a tempalte for better control over markup.
+Just add a new node of this type to a document in the Neos backend.
 
-Usage via TypoScript:
----------------------
+### Usage via TypoScript:
 
 In your prototype define a property which renders the social plugins like this:
 
@@ -107,3 +107,38 @@ If you want to extend the configuration just go like this:
 Using Pinterest:
 ---------------------
 In order to use a "Pin it" button in shariff pinterest won't grab an image of your page automatically. You have to define one by using the "data-media-url" attribute. So just extend prototype(Networkteam.Neos.Shariff:Shariff) and use e.g. the twitterCardImage property of the current Document Node to serve a proper image.
+
+
+Create your own Shariff wrapper
+-------------------------------
+
+To render the shariff nodeType in your own template you can to create a nodeType i.e. `Your.Site:ShariffContainer`  with Typoscript and HTML template:
+
+**NodeTypes.ShariffContainer.yaml** (Configuration/NodeTypes.ShariffContainer.yaml)
+
+	'Your.Site:ShariffContainer':
+	  superTypes:
+	    'TYPO3.Neos:Content': true
+	  ui:
+	    label: 'Shariff container'
+	    icon: 'icon-share'
+	    
+**Root.ts2** or **ShariffContainer.ts2**
+
+	prototype(Your.Site:ShariffContainer) {
+			shariffTag = Networkteam.Neos.Shariff:Shariff
+	}
+
+Make sure `ShariffContainer.ts2` gets included in your sites Root.ts2 by either
+
+	include: NodeTypes/ShariffContainer.ts2
+
+or
+
+	include: NodeTypes/*.ts2
+	
+**ShariffContainer.html** (Resources/Private/Templates/NodeTypes/ShariffContainer.html)
+
+	<div>
+		{shariffTag -> f:format.raw()}
+	</div>
