@@ -10,7 +10,7 @@ TYPO3:
         'zendframework.zendstdlib': ['.*']
     reflection:
       ignoredTags:
-        unstable: 'unstable'
+        unstable: TRUE
 
   Neos:
     typoScript:
