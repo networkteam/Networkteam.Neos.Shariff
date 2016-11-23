@@ -23,7 +23,7 @@ prototype(TYPO3.Neos:Page) {
 	}
 }
 
-prototype(Networkteam.Neos.Shariff:Shariff) < prototype(TYPO3.TypoScript:Tag) {
+prototype(Networkteam.Neos.Shariff:ShariffTag) < prototype(TYPO3.TypoScript:Tag) {
 	// API
 	services = ${Configuration.setting('Networkteam.Neos.Shariff.options.services')}
 	theme = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.theme')}
@@ -54,4 +54,8 @@ prototype(Networkteam.Neos.Shariff:Shariff) < prototype(TYPO3.TypoScript:Tag) {
 
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 	@exceptionHandler = 'TYPO3\\Neos\\TypoScript\\ExceptionHandlers\\NodeWrappingHandler'
+}
+
+prototype(Networkteam.Neos.Shariff:Shariff) {
+	shariffTag = Networkteam.Neos.Shariff:ShariffTag
 }

@@ -3,4 +3,4 @@
     'TYPO3.Neos:Content': true
   ui:
     label: 'Social Plugins'
-    icon: icon-ellipsis-horizontal
+    icon: 'icon-ellipsis-horizontal'
