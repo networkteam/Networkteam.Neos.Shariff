@@ -1,6 +1,6 @@
 {
     "name": "networkteam/neos-shariff",
-    "type": "typo3-flow-plugin",
+    "type": "neos-plugin",
     "description": "Integrate shariff, social buttons with privacy",
     "license": "GPL-2.0+",
     "authors": [
@@ -10,12 +10,12 @@
         }
     ],
     "require": {
-        "typo3/neos": "^2.0",
-        "heise/shariff": "~1.5"
+        "neos/neos": "^3.0",
+        "heise/shariff": "^6.0"
     },
     "autoload": {
-        "psr-0": {
-            "Networkteam\\Neos\\Shariff": "Classes"
+        "psr-4": {
+            "Networkteam\\Neos\\Shariff\\": "Classes"
         }
     }
 }
