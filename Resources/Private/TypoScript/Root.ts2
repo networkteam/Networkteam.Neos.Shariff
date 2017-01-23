@@ -1,57 +1,57 @@
 prototype(TYPO3.Neos:Page) {
-	body.javascripts {
-		shariff = TYPO3.TypoScript:Tag {
-			tagName = 'script'
-			attributes {
-				src = TYPO3.TypoScript:ResourceUri {
-					path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.min.js'
-				}
-			}
-		}
-	}
+    body.javascripts {
+        shariff = TYPO3.TypoScript:Tag {
+            tagName = 'script'
+            attributes {
+                src = TYPO3.TypoScript:ResourceUri {
+                    path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.min.js'
+                }
+            }
+        }
+    }
 
-	head.stylesheets {
-		shariff = TYPO3.TypoScript:Tag {
-			tagName = 'link'
-			attributes {
-				rel = 'stylesheet'
-				href = TYPO3.TypoScript:ResourceUri {
-					path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.complete.css'
-				}
-			}
-		}
-	}
+    head.stylesheets {
+        shariff = TYPO3.TypoScript:Tag {
+            tagName = 'link'
+            attributes {
+                rel = 'stylesheet'
+                href = TYPO3.TypoScript:ResourceUri {
+                    path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.complete.css'
+                }
+            }
+        }
+    }
 }
 
 prototype(Networkteam.Neos.Shariff:Shariff) < prototype(TYPO3.TypoScript:Tag) {
-	// API
-	services = ${Configuration.setting('Networkteam.Neos.Shariff.options.services')}
-	theme = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.theme')}
-	orientation = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.orientation')}
-	language = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.language')}
+    // API
+    services = ${Configuration.setting('Networkteam.Neos.Shariff.options.services')}
+    theme = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.theme')}
+    orientation = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.orientation')}
+    language = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.language')}
 
-	attributes {
-		class = 'shariff'
-		data-backend-url = TYPO3.TypoScript:UriBuilder {
-			package = 'Networkteam.Neos.Shariff'
-			format = 'json'
-			controller = 'Shariff'
-			action = 'counts'
-		}
-		data-services = ${String.toLowerCase(Json.stringify(services))}
-		data-theme = ${theme}
-		data-orientation = ${orientation}
-		data-lang = ${language}
+    attributes {
+        class = 'shariff'
+        data-backend-url = TYPO3.TypoScript:UriBuilder {
+            package = 'Networkteam.Neos.Shariff'
+            format = 'json'
+            controller = 'Shariff'
+            action = 'counts'
+        }
+        data-services = ${String.toLowerCase(Json.stringify(services))}
+        data-theme = ${theme}
+        data-orientation = ${orientation}
+        data-lang = ${language}
 
-		// Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
-	}
+        // Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
+    }
 
-	// Internal
-	@override.services = ${this.services}
-	@override.theme = ${this.theme}
-	@override.orientation = ${this.orientation}
-	@override.language = ${this.language}
+    // Internal
+    @context.services = ${this.services}
+    @context.theme = ${this.theme}
+    @context.orientation = ${this.orientation}
+    @context.language = ${this.language}
 
-	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
-	@exceptionHandler = 'TYPO3\\Neos\\TypoScript\\ExceptionHandlers\\NodeWrappingHandler'
+    @process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+    @exceptionHandler = 'TYPO3\\Neos\\TypoScript\\ExceptionHandlers\\NodeWrappingHandler'
 }
