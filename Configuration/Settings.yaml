@@ -1,9 +1,4 @@
 
-TYPO3:
-  Neos:
-    typoScript:
-      autoInclude:
-        Networkteam.Neos.Shariff: true
 Networkteam:
   Neos:
     Shariff:
@@ -21,3 +16,7 @@ Neos:
     reflection:
       ignoredTags:
         unstable: true
+  Neos:
+    typoScript:
+      autoInclude:
+        Networkteam.Neos.Shariff: true
