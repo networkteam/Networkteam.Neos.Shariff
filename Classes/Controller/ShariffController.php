@@ -6,8 +6,8 @@ namespace Networkteam\Neos\Shariff\Controller;
  ***************************************************************/
 
 use Heise\Shariff\Backend;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Mvc\Controller\ActionController;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Mvc\Controller\ActionController;
 
 class ShariffController extends ActionController
 {

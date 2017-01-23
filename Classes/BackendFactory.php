@@ -6,9 +6,9 @@ namespace Networkteam\Neos\Shariff;
  ***************************************************************/
 
 use Heise\Shariff\Backend;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Http\Request;
-use TYPO3\Flow\Http\Uri;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Http\Request;
+use Neos\Flow\Http\Uri;
 
 class BackendFactory
 {
@@ -19,7 +19,7 @@ class BackendFactory
     protected $options;
 
     /**
-     * @Flow\InjectConfiguration(path="http.baseUri", package="TYPO3.Flow")
+     * @Flow\InjectConfiguration(path="http.baseUri", package="Neos.Flow")
      * @var string
      */
     protected $baseUri;

@@ -1,14 +1,9 @@
-TYPO3:
-  Flow:
-    reflection:
-      ignoredTags:
-        unstable: TRUE
 
+TYPO3:
   Neos:
     typoScript:
       autoInclude:
-        'Networkteam.Neos.Shariff': TRUE
-
+        Networkteam.Neos.Shariff: true
 Networkteam:
   Neos:
     Shariff:
@@ -17,16 +12,12 @@ Networkteam:
         orientation: horizontal
         language: en
       options:
-        domain: ~
+        domain: null
         cache:
           ttl: 3600
-        services:
-#          - Facebook
-#          - GooglePlus
-#          - Twitter
-#          - LinkedIn
-#          - Reddit
-#          - StumbleUpon
-#          - Flattr
-#          - Pinterest
-#          - Xing
+        services: null
+Neos:
+  Flow:
+    reflection:
+      ignoredTags:
+        unstable: true
