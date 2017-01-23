@@ -17,6 +17,6 @@ Neos:
       ignoredTags:
         unstable: true
   Neos:
-    typoScript:
+    fusion:
       autoInclude:
         Networkteam.Neos.Shariff: true
