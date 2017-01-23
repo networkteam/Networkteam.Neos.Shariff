@@ -1,3 +1,16 @@
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'Networkteam.Neos.Shariff':
+          position: 'before Neos.Neos'
+    reflection:
+      ignoredTags:
+        unstable: true
+  Neos:
+    fusion:
+      autoInclude:
+        Networkteam.Neos.Shariff: true
 
 Networkteam:
   Neos:
@@ -10,13 +23,13 @@ Networkteam:
         domain: null
         cache:
           ttl: 3600
-        services: null
-Neos:
-  Flow:
-    reflection:
-      ignoredTags:
-        unstable: true
-  Neos:
-    fusion:
-      autoInclude:
-        Networkteam.Neos.Shariff: true
+        services:
+#          - Facebook
+#          - GooglePlus
+#          - Twitter
+#          - LinkedIn
+#          - Reddit
+#          - StumbleUpon
+#          - Flattr
+#          - Pinterest
+#          - Xing

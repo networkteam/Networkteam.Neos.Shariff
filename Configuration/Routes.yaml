@@ -1,6 +1,6 @@
 -
-  name:  'shariff'
-  uriPattern: 'counts'
+  name:  'Networkteam.Neos.Shariff'
+  uriPattern: 'shariff'
   defaults:
     '@package':    'Networkteam.Neos.Shariff'
     '@controller': 'Shariff'

@@ -1,4 +1,3 @@
-
 privilegeTargets:
   Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
     Networkteam_Neos_Shariff_Backend:

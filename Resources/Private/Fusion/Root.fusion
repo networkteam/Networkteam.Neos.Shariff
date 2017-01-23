@@ -1,23 +1,20 @@
-prototype(Neos.Neos:Page) {
-    body.javascripts {
-        shariff = Neos.Fusion:Tag {
-            tagName = 'script'
-            attributes {
-                src = Neos.Fusion:ResourceUri {
-                    path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.min.js'
-                }
-            }
+prototype(Page) {
+    body.javascripts.shariff = Neos.Fusion:Tag {
+        tagName = 'script'
+
+        attributes.src = Neos.Fusion:ResourceUri {
+            path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.min.js'
         }
     }
 
-    head.stylesheets {
-        shariff = Neos.Fusion:Tag {
-            tagName = 'link'
-            attributes {
-                rel = 'stylesheet'
-                href = Neos.Fusion:ResourceUri {
-                    path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.complete.css'
-                }
+    head.stylesheets.shariff = Neos.Fusion:Tag {
+        tagName = 'link'
+
+        attributes {
+            rel = 'stylesheet'
+
+            href = Neos.Fusion:ResourceUri {
+                path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.complete.css'
             }
         }
     }
@@ -52,6 +49,6 @@ prototype(Networkteam.Neos.Shariff:Shariff) < prototype(Neos.Fusion:Tag) {
     @context.orientation = ${this.orientation}
     @context.language = ${this.language}
 
-    @process.contentElementWrapping = Neos.Neos:ContentElementWrapping
-    @exceptionHandler = 'TYPO3\\Neos\\TypoScript\\ExceptionHandlers\\NodeWrappingHandler'
+    @process.contentElementWrapping = ContentElementWrapping
+    @exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\NodeWrappingHandler'
 }

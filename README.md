@@ -16,14 +16,7 @@ Installation:
 Configuration:
 --------------
 
-Include the package routes in your *global* `Routes.yaml` for fetching the counts via AJAX:
-
-    -
-      name: 'NetworkteamNeosShariff'
-      uriPattern: 'shariff/<NetworkteamNeosShariffSubroutes>'
-      subRoutes:
-        NetworkteamNeosShariffSubroutes:
-          package: Networkteam.Neos.Shariff
+Including the package routes in your *global* `Routes.yaml` is no longer needed as of Flow 4.0.
 
 Configure the list of services to show in a `Settings.yaml` (e.g. in your site package):
 
@@ -98,10 +91,10 @@ You can override them in your settings.yaml.
 If you want to extend the configuration just go like this:
 
     prototype(Networkteam.Neos.Shariff:Shariff) {
-    	attributes {
-    		// Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
-    		// data-example = 'value'
-    	}
+        attributes {
+            // Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
+            // data-example = 'value'
+        }
     }
     
 Using Pinterest:
