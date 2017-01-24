@@ -13,6 +13,21 @@ use Neos\Flow\Http\Uri;
 class BackendFactory
 {
     /**
+     * @var array
+     */
+    protected static $supportedServices = [
+        'AddThis',
+        'Facebook',
+        'Flattr',
+        'GooglePlus',
+        'LinkedIn',
+        'Pinterest',
+        'Reddit',
+        'StumbleUpon',
+        'Xing',
+    ];
+
+    /**
      * @Flow\InjectConfiguration(path="options")
      * @var array
      */
@@ -25,32 +40,18 @@ class BackendFactory
     protected $baseUri;
 
     /**
-     * @var array
-     */
-    protected $supportedServices = [
-        'Facebook',
-        'Flattr',
-        'GooglePlus',
-        'LinkedIn',
-        'Pinterest',
-        'Reddit',
-        'Twitter',
-        'Xing'
-    ];
-
-    /**
      * Auto-detect the domain (if not set) and restrict services to available backends
      */
     public function initializeObject()
     {
-        if (!isset($this->options['domain'])) {
+        if (!isset($this->options['domains'])) {
             $request = Request::createFromEnvironment();
             if ((string)$this->baseUri !== '') {
                 $request->setBaseUri(new Uri($this->baseUri));
             }
-            $this->options['domain'] = $request->getBaseUri()->getHost();
+            $this->options['domains'] = [$request->getBaseUri()->getHost()];
         }
-        $this->options['services'] = array_intersect($this->options['services'], $this->supportedServices);
+        $this->options['services'] = array_intersect($this->options['services'], static::$supportedServices);
     }
 
     /**

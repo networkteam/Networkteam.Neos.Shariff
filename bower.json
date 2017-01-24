@@ -2,6 +2,6 @@
   "name": "networkteam/neos-shariff",
   "private": true,
   "dependencies": {
-    "shariff": "~1.15.0"
+    "shariff": "^1.24.1"
   }
 }
