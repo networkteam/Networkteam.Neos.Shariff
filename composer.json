@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "typo3/neos": "*",
+        "typo3/neos": "^2.0",
         "heise/shariff": "~1.5"
     },
     "autoload": {
