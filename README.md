@@ -11,6 +11,16 @@ This plugin integrates Shariff into Neos with a few simple steps.
 
     $ composer require networkteam/neos-shariff
 
+### Compatibility
+
+See the following table for the correct plugin version to choose:
+
+| Neos CMS | Plugin version |
+| -------- | -------------- |
+| >= 3.0   | 3.x            |
+| < 3.0    | 2.x            |
+| < 2.0    | 1.x            |
+
 ## Configuration
 
 Including the package routes in your *global* `Routes.yaml` is no longer needed as of Flow 4.0.
