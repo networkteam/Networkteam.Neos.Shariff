@@ -1,5 +1,4 @@
-Networkteam.Neos.Shariff
-========================
+# Networkteam.Neos.Shariff
 
 Social plugins are on every page today, but if you have concerns about privacy of your visitors it is not that easy
 to integrate them. The german publisher Heise created a general solution that allows to show the counts for each share
@@ -8,22 +7,13 @@ the visitors. http://ct.de/-2467514
 
 This plugin integrates Shariff into Neos with a few simple steps.
 
-Installation:
--------------
+## Installation
 
     $ composer require networkteam/neos-shariff
 
-Configuration:
---------------
+## Configuration
 
-Include the package routes in your *global* `Routes.yaml` for fetching the counts via AJAX:
-
-    -
-      name: 'NetworkteamNeosShariff'
-      uriPattern: 'shariff/<NetworkteamNeosShariffSubroutes>'
-      subRoutes:
-        NetworkteamNeosShariffSubroutes:
-          package: Networkteam.Neos.Shariff
+Including the package routes in your *global* `Routes.yaml` is no longer needed as of Flow 4.0.
 
 Configure the list of services to show in a `Settings.yaml` (e.g. in your site package):
 
@@ -41,14 +31,14 @@ Configure the list of services to show in a `Settings.yaml` (e.g. in your site p
 
 See `Configuration/Settings.yaml` for more information about possible options.
 
-Usage:
-------
+## Usage
 
-This package contains a simple Node Type `Networkteam.Neos.Shariff:Shariff` that renders social
+### As a content element
+
+This package contains a simple node type `Networkteam.Neos.Shariff:Shariff` that renders social
 share buttons via Shariff. Just add a new node of this type to a document in the Neos backend.
 
-Usage via TypoScript:
----------------------
+### Usage via TypoScript
 
 In your prototype define a property which renders the social plugins like this:
 
@@ -60,16 +50,15 @@ Then in the corresponding template render the path like this:
 
     {socialButtons -> f:format.raw()}
 
-Configuration:
----------------------
+## Configuration
 
 Shariff is configured by data-attributes. A basic set of these attributes is already defined by package settings.
 
-* data-backend-url
-* data-services
-* data-theme
-* data-orientation
-* data-lang
+* `data-backend-url`
+* `data-services`
+* `data-theme`
+* `data-orientation`
+* `data-lang`
 
 You can override them in your settings.yaml.
 
@@ -98,12 +87,23 @@ You can override them in your settings.yaml.
 If you want to extend the configuration just go like this:
 
     prototype(Networkteam.Neos.Shariff:Shariff) {
-    	attributes {
-    		// Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
-    		// data-example = 'value'
-    	}
+        attributes {
+            // Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
+            // data-example = 'value'
+        }
     }
     
-Using Pinterest:
----------------------
-In order to use a "Pin it" button in shariff pinterest won't grab an image of your page automatically. You have to define one by using the "data-media-url" attribute. So just extend prototype(Networkteam.Neos.Shariff:Shariff) and use e.g. the twitterCardImage property of the current Document Node to serve a proper image.
+## Using Pinterest
+
+In order to use a "Pin it" button in shariff pinterest won't grab an image of your page automatically.
+You have to define one by using the "data-media-url" attribute. So just extend
+`prototype(Networkteam.Neos.Shariff:Shariff)` and use e.g. the twitterCardImage property of the current Document Node to
+serve a proper image.
+
+## Acknowledgments
+
+Development of the Neos integration sponsored by [networkteam GmbH - Neos Agentur](https://networkteam.com/fokus/neos-cms.html).
+
+## License
+
+Licensed under GPLv2+, see [LICENSE](LICENSE).

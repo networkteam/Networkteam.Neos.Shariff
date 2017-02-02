@@ -1,0 +1,54 @@
+prototype(Page) {
+    body.javascripts.shariff = Neos.Fusion:Tag {
+        tagName = 'script'
+
+        attributes.src = Neos.Fusion:ResourceUri {
+            path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.min.js'
+        }
+    }
+
+    head.stylesheets.shariff = Neos.Fusion:Tag {
+        tagName = 'link'
+
+        attributes {
+            rel = 'stylesheet'
+
+            href = Neos.Fusion:ResourceUri {
+                path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.complete.css'
+            }
+        }
+    }
+}
+
+prototype(Networkteam.Neos.Shariff:Shariff) < prototype(Neos.Fusion:Tag) {
+    // API
+    services = ${Configuration.setting('Networkteam.Neos.Shariff.options.services')}
+    theme = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.theme')}
+    orientation = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.orientation')}
+    language = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.language')}
+
+    attributes {
+        class = 'shariff'
+        data-backend-url = Neos.Fusion:UriBuilder {
+            package = 'Networkteam.Neos.Shariff'
+            format = 'json'
+            controller = 'Shariff'
+            action = 'counts'
+        }
+        data-services = ${String.toLowerCase(Json.stringify(services))}
+        data-theme = ${theme}
+        data-orientation = ${orientation}
+        data-lang = ${language}
+
+        // Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
+    }
+
+    // Internal
+    @context.services = ${this.services}
+    @context.theme = ${this.theme}
+    @context.orientation = ${this.orientation}
+    @context.language = ${this.language}
+
+    @process.contentElementWrapping = ContentElementWrapping
+    @exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\NodeWrappingHandler'
+}

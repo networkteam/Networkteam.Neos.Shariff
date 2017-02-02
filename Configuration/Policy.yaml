@@ -1,10 +1,9 @@
-
 privilegeTargets:
-  TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
     Networkteam_Neos_Shariff_Backend:
       matcher: method(Networkteam\Neos\Shariff\Controller\ShariffController->countsAction())
 roles:
-  'TYPO3.Flow:Everybody':
+  'Neos.Flow:Everybody':
     privileges:
       -
         privilegeTarget: Networkteam_Neos_Shariff_Backend

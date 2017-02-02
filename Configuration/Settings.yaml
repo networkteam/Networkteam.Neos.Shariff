@@ -1,13 +1,16 @@
-TYPO3:
+Neos:
   Flow:
+    mvc:
+      routes:
+        'Networkteam.Neos.Shariff':
+          position: 'before Neos.Neos'
     reflection:
       ignoredTags:
-        unstable: TRUE
-
+        unstable: true
   Neos:
-    typoScript:
+    fusion:
       autoInclude:
-        'Networkteam.Neos.Shariff': TRUE
+        Networkteam.Neos.Shariff: true
 
 Networkteam:
   Neos:
@@ -17,16 +20,26 @@ Networkteam:
         orientation: horizontal
         language: en
       options:
-        domain: ~
+        domain: null
         cache:
           ttl: 3600
         services:
+#          - AddThis
+#          - Diaspora
 #          - Facebook
+#          - Flattr
 #          - GooglePlus
-#          - Twitter
+#          - Info
 #          - LinkedIn
+#          - Mail
+#          - Pinterest
+#          - Qzone
 #          - Reddit
 #          - StumbleUpon
-#          - Flattr
-#          - Pinterest
+#          - tencent-weibo
+#          - Threema
+#          - tumblr
+#          - Twitter
+#          - weibo
+#          - Whatsapp
 #          - Xing
