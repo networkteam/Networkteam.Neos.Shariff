@@ -7,6 +7,7 @@ namespace Networkteam\Neos\Shariff;
 
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Http\Uri;
+use TYPO3\Flow\Utility\Environment;
 
 class BackendFactory {
 
@@ -21,6 +22,12 @@ class BackendFactory {
 	 * @var string
 	 */
 	protected $baseUri;
+
+	/**
+	 * @Flow\Inject
+	 * @var Environment
+	 */
+	protected $environment;
 
 	/**
 	 * @var array
@@ -39,6 +46,10 @@ class BackendFactory {
 			$this->options['domain'] = $request->getBaseUri()->getHost();
 		}
 		$this->options['services'] = array_intersect($this->options['services'], $this->supportedServices);
+
+		$cacheDir = $this->environment->getPathToTemporaryDirectory() . '/Networkteam_Neos_Shariff';
+		\TYPO3\Flow\Utility\Files::createDirectoryRecursively($cacheDir);
+		$this->options['cache']['cacheDir'] = $cacheDir;
 	}
 
 	/**
