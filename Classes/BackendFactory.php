@@ -9,6 +9,7 @@ use Heise\Shariff\Backend;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Http\Request;
 use Neos\Flow\Http\Uri;
+use Neos\Flow\Utility\Environment;
 
 class BackendFactory
 {
@@ -40,6 +41,12 @@ class BackendFactory
     protected $baseUri;
 
     /**
+     * @Flow\Inject
+     * @var Environment
+     */
+    protected $environment;
+
+    /**
      * Auto-detect the domain (if not set) and restrict services to available backends
      */
     public function initializeObject()
@@ -52,6 +59,10 @@ class BackendFactory
             $this->options['domains'] = [$request->getBaseUri()->getHost()];
         }
         $this->options['services'] = array_intersect($this->options['services'], static::$supportedServices);
+
+        $cacheDir = $this->environment->getPathToTemporaryDirectory() . '/Networkteam_Neos_Shariff';
+        \Neos\Utility\Files::createDirectoryRecursively($cacheDir);
+        $this->options['cache']['cacheDir'] = $cacheDir;
     }
 
     /**
