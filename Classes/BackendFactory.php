@@ -55,11 +55,11 @@ class BackendFactory
     public function initializeObject()
     {
         if (!isset($this->options['domains'])) {
-            $request = Request::createFromEnvironment();
-            if ((string)$this->baseUri !== '') {
-                $request->setBaseUri(new Uri($this->baseUri));
-            }
-            $this->options['domains'] = [$request->getBaseUri()->getHost()];
+            $this->options['domains'] = [
+                (
+                    (string)$this->baseUri !== '' ? new Uri($this->baseUri) : Request::createFromEnvironment()->getUri()
+                )->getHost(),
+            ];
         }
         $this->options['services'] = array_intersect($this->options['services'], static::$supportedServices);
 
