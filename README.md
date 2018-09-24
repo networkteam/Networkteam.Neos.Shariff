@@ -38,7 +38,6 @@ Networkteam:
           - WhatsApp
           - Twitter
           - Facebook
-          - GooglePlus
           - Pinterest
           - Mail
 ```

@@ -13,7 +13,7 @@
         "php": "^7.0",
         "ext-json": "*",
 
-        "heise/shariff": "^6.0",
+        "heise/shariff": "^7.1",
         "neos/flow": "^4.0 | ^5.0",
         "neos/utility-files": "^4.0 | ^5.0"
     },

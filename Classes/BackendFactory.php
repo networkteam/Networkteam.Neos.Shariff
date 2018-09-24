@@ -21,12 +21,12 @@ class BackendFactory
         'AddThis',
         'Facebook',
         'Flattr',
-        'GooglePlus',
         'LinkedIn',
         'Pinterest',
         'Reddit',
         'StumbleUpon',
         'Xing',
+        'Vk',
     ];
 
     /**
