@@ -10,8 +10,12 @@
         }
     ],
     "require": {
-        "neos/neos": "^3.0",
-        "heise/shariff": "^6.0"
+        "php": "^7.0",
+        "ext-json": "*",
+
+        "heise/shariff": "^6.0",
+        "neos/flow": "^4.0",
+        "neos/utility-files": "^4.0"
     },
     "autoload": {
         "psr-4": {

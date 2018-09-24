@@ -3,7 +3,7 @@ privilegeTargets:
     Networkteam_Neos_Shariff_Backend:
       matcher: method(Networkteam\Neos\Shariff\Controller\ShariffController->countsAction())
 roles:
-  'Neos.Flow:Everybody':
+  Neos.Flow:Everybody:
     privileges:
       -
         privilegeTarget: Networkteam_Neos_Shariff_Backend

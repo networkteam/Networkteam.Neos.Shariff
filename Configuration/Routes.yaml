@@ -1,9 +1,9 @@
 -
-  name:  'Networkteam.Neos.Shariff'
-  uriPattern: 'shariff'
+  name:  Networkteam.Neos.Shariff
+  uriPattern: shariff
   defaults:
-    '@package':    'Networkteam.Neos.Shariff'
-    '@controller': 'Shariff'
-    '@action':     'counts'
-    '@format':     'json'
+    '@package': Networkteam.Neos.Shariff
+    '@controller': Shariff
+    '@action': counts
+    '@format': json
   appendExceedingArguments: true

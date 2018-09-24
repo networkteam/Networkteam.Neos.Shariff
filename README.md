@@ -9,7 +9,9 @@ This plugin integrates Shariff into Neos with a few simple steps.
 
 ## Installation
 
-    $ composer require networkteam/neos-shariff
+```bash
+composer require networkteam/neos-shariff
+```
 
 ### Compatibility
 
@@ -27,17 +29,19 @@ Including the package routes in your *global* `Routes.yaml` is no longer needed 
 
 Configure the list of services to show in a `Settings.yaml` (e.g. in your site package):
 
-    Networkteam:
-      Neos:
-        Shariff:
-          options:
-            services:
-              - WhatsApp
-              - Twitter
-              - Facebook
-              - GooglePlus
-              - Pinterest
-              - Mail
+```yaml
+Networkteam:
+  Neos:
+    Shariff:
+      options:
+        services:
+          - WhatsApp
+          - Twitter
+          - Facebook
+          - GooglePlus
+          - Pinterest
+          - Mail
+```
 
 See `Configuration/Settings.yaml` for more information about possible options.
 
@@ -48,17 +52,21 @@ See `Configuration/Settings.yaml` for more information about possible options.
 This package contains a simple node type `Networkteam.Neos.Shariff:Shariff` that renders social
 share buttons via Shariff. Just add a new node of this type to a document in the Neos backend.
 
-### Usage via TypoScript
+### Usage via Fusion
 
 In your prototype define a property which renders the social plugins like this:
 
-    prototype(My.Awesome.Package:Post) {
-        socialButtons = Networkteam.Neos.Shariff:Shariff
-    }
+```neosfusion
+prototype(My.Awesome.Package:Post) {
+    socialButtons = Networkteam.Neos.Shariff:Shariff
+}
+```
 
 Then in the corresponding template render the path like this:
 
-    {socialButtons -> f:format.raw()}
+```
+{socialButtons -> f:format.raw()}
+```
 
 ## Configuration
 
@@ -70,43 +78,57 @@ Shariff is configured by data-attributes. A basic set of these attributes is alr
 * `data-orientation`
 * `data-lang`
 
-You can override them in your settings.yaml.
+You can override them in your `Settings.yaml`.
 
-    Networkteam:
-      Neos:
-        Shariff:
-          frontend:
-            theme: standard
-            orientation: horizontal
-            language: en
-          options:
-            domain: ~
-            cache:
-              ttl: 3600
-            services:
-    #          - Facebook
-    #          - GooglePlus
-    #          - Twitter
-    #          - LinkedIn
-    #          - Reddit
-    #          - StumbleUpon
-    #          - Flattr
-    #          - Pinterest
-    #          - Xing
+```yaml
+Networkteam:
+  Neos:
+    Shariff:
+      frontend:
+        theme: standard
+        orientation: horizontal
+        language: en
+      options:
+        domain: null
+        cache:
+          ttl: 3600
+        services: []
+#          - AddThis
+#          - Diaspora
+#          - Facebook
+#          - Flattr
+#          - GooglePlus
+#          - Info
+#          - LinkedIn
+#          - Mail
+#          - Pinterest
+#          - Qzone
+#          - Reddit
+#          - StumbleUpon
+#          - tencent-weibo
+#          - Threema
+#          - tumblr
+#          - Twitter
+#          - weibo
+#          - Whatsapp
+#          - Xing
+```
 
 If you want to extend the configuration just go like this:
 
-    prototype(Networkteam.Neos.Shariff:Shariff) {
-        attributes {
-            // Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
-            // data-example = 'value'
-        }
+```neosfusion
+prototype(Networkteam.Neos.Shariff:Shariff) {
+    attributes {
+        // Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
+        // data-example = 'value'
     }
+}
+```
     
 ## Using Pinterest
 
 In order to use a "Pin it" button in shariff pinterest won't grab an image of your page automatically.
-You have to define one by using the "data-media-url" attribute. So just extend
+You have to define one by using the `data-media-url` attribute. So just extend
 `prototype(Networkteam.Neos.Shariff:Shariff)` and use e.g. the twitterCardImage property of the current Document Node to
 serve a proper image.
 

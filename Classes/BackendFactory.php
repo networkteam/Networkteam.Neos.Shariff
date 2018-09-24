@@ -10,11 +10,12 @@ use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Http\Request;
 use Neos\Flow\Http\Uri;
 use Neos\Flow\Utility\Environment;
+use Neos\Utility\Files;
 
 class BackendFactory
 {
     /**
-     * @var array
+     * @var string[]
      */
     protected static $supportedServices = [
         'AddThis',
@@ -29,12 +30,6 @@ class BackendFactory
     ];
 
     /**
-     * @Flow\InjectConfiguration(path="options")
-     * @var array
-     */
-    protected $options;
-
-    /**
      * @Flow\InjectConfiguration(path="http.baseUri", package="Neos.Flow")
      * @var string
      */
@@ -47,7 +42,15 @@ class BackendFactory
     protected $environment;
 
     /**
+     * @Flow\InjectConfiguration(path="options")
+     * @var mixed[]
+     */
+    protected $options;
+
+    /**
      * Auto-detect the domain (if not set) and restrict services to available backends
+     *
+     * @return void
      */
     public function initializeObject()
     {
@@ -61,14 +64,14 @@ class BackendFactory
         $this->options['services'] = array_intersect($this->options['services'], static::$supportedServices);
 
         $cacheDir = $this->environment->getPathToTemporaryDirectory() . '/Networkteam_Neos_Shariff';
-        \Neos\Utility\Files::createDirectoryRecursively($cacheDir);
+        Files::createDirectoryRecursively($cacheDir);
         $this->options['cache']['cacheDir'] = $cacheDir;
     }
 
     /**
      * @return Backend
      */
-    public function create()
+    public function create() : Backend
     {
         return new Backend($this->options);
     }

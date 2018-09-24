@@ -17,17 +17,16 @@ class ShariffController extends ActionController
     protected $supportedMediaTypes = ['application/json'];
 
     /**
-     * @var Backend
      * @Flow\Inject
+     * @var Backend
      */
     protected $shariff;
 
     /**
      * @param string $url
-     *
      * @return string
      */
-    public function countsAction($url = null)
+    public function countsAction(string $url = null) : string
     {
         $this->response->getHeaders()->set('Content-Type', 'application/json');
 

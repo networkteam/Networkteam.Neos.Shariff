@@ -2,8 +2,8 @@ Neos:
   Flow:
     mvc:
       routes:
-        'Networkteam.Neos.Shariff':
-          position: 'before Neos.Neos'
+        Networkteam.Neos.Shariff:
+          position: before Neos.Neos
     reflection:
       ignoredTags:
         unstable: true
@@ -23,7 +23,7 @@ Networkteam:
         domain: null
         cache:
           ttl: 3600
-        services:
+        services: []
 #          - AddThis
 #          - Diaspora
 #          - Facebook
