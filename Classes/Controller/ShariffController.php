@@ -12,6 +12,11 @@ use Neos\Flow\Mvc\Controller\ActionController;
 class ShariffController extends ActionController
 {
     /**
+     * @var string[]
+     */
+    protected $supportedMediaTypes = ['application/json'];
+
+    /**
      * @var Backend
      * @Flow\Inject
      */
