@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "neos/neos": "^3.0",
+        "neos/neos": "^4.0",
         "heise/shariff": "^6.0"
     },
     "autoload": {
