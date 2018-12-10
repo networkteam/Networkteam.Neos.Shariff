@@ -22,10 +22,13 @@ prototype(Neos.Neos:Page) {
 
 prototype(Networkteam.Neos.Shariff:Shariff) < prototype(Neos.Fusion:Tag) {
     // API
-    services = ${Configuration.setting('Networkteam.Neos.Shariff.options.services')}
-    theme = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.theme')}
-    orientation = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.orientation')}
-    language = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.language')}
+    @context {
+        services = ${Configuration.setting('Networkteam.Neos.Shariff.options.services')}
+        theme = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.theme')}
+        buttonStyle = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.buttonStyle')}
+        orientation = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.orientation')}
+        language = ${Configuration.setting('Networkteam.Neos.Shariff.frontend.language')}
+    }
 
     attributes {
         class = 'shariff'
@@ -37,17 +40,12 @@ prototype(Networkteam.Neos.Shariff:Shariff) < prototype(Neos.Fusion:Tag) {
         }
         data-services = ${String.toLowerCase(Json.stringify(services))}
         data-theme = ${theme}
+        data-button-style = ${buttonStyle}
         data-orientation = ${orientation}
         data-lang = ${language}
 
         // Put additional attributes here, see https://github.com/heiseonline/shariff#options-data-attributes
     }
-
-    // Internal
-    @context.services = ${this.services}
-    @context.theme = ${this.theme}
-    @context.orientation = ${this.orientation}
-    @context.language = ${this.language}
 
     @process.contentElementWrapping = Neos.Neos:ContentElementWrapping
     @exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\NodeWrappingHandler'

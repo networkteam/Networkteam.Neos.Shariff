@@ -17,6 +17,7 @@ Networkteam:
     Shariff:
       frontend:
         theme: standard
+        buttonStyle: standard
         orientation: horizontal
         language: en
       options:
