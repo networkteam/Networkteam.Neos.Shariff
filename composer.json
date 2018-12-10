@@ -11,7 +11,7 @@
     ],
     "require": {
         "neos/neos": "^4.0",
-        "heise/shariff": "^6.0"
+        "heise/shariff": "^8.0"
     },
     "autoload": {
         "psr-4": {

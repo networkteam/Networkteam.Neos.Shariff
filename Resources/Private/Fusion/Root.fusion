@@ -1,4 +1,4 @@
-prototype(Page) {
+prototype(Neos.Neos:Page) {
     body.javascripts.shariff = Neos.Fusion:Tag {
         tagName = 'script'
 
@@ -49,6 +49,6 @@ prototype(Networkteam.Neos.Shariff:Shariff) < prototype(Neos.Fusion:Tag) {
     @context.orientation = ${this.orientation}
     @context.language = ${this.language}
 
-    @process.contentElementWrapping = ContentElementWrapping
+    @process.contentElementWrapping = Neos.Neos:ContentElementWrapping
     @exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\NodeWrappingHandler'
 }
