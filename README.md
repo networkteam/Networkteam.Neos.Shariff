@@ -110,6 +110,11 @@ You have to define one by using the "data-media-url" attribute. So just extend
 `prototype(Networkteam.Neos.Shariff:Shariff)` and use e.g. the twitterCardImage property of the current Document Node to
 serve a proper image.
 
+## Development
+
+When you publish a new version, make sure to run `npm run-script build`. This will update the Shariff package and copy the assets into public folder.
+After build check in the modified files.
+
 ## Acknowledgments
 
 Development of the Neos integration sponsored by [networkteam GmbH - Neos Agentur](https://networkteam.com/fokus/neos-cms.html).
