@@ -1,15 +1,18 @@
 <?php
+declare(strict_types=1);
+
 namespace Networkteam\Neos\Shariff;
 
 /***************************************************************
  *  (c) 2015 networkteam GmbH - all rights reserved
  ***************************************************************/
 
+use GuzzleHttp\Psr7\ServerRequest;
+use GuzzleHttp\Psr7\Uri;
 use Heise\Shariff\Backend;
 use Neos\Flow\Annotations as Flow;
-use Neos\Flow\Http\Request;
-use Neos\Flow\Http\Uri;
 use Neos\Flow\Utility\Environment;
+use Neos\Utility\Files;
 
 class BackendFactory
 {
@@ -49,26 +52,26 @@ class BackendFactory
     /**
      * Auto-detect the domain (if not set) and restrict services to available backends
      */
-    public function initializeObject()
+    public function initializeObject() : void
     {
         if (!isset($this->options['domains'])) {
-            $request = Request::createFromEnvironment();
+            $request = ServerRequest::fromGlobals();
             if ((string)$this->baseUri !== '') {
-                $request->setBaseUri(new Uri($this->baseUri));
+                $request = $request->withUri(new Uri($this->baseUri));
             }
-            $this->options['domains'] = [$request->getBaseUri()->getHost()];
+            $this->options['domains'] = [$request->getUri()->getHost()];
         }
         $this->options['services'] = array_intersect($this->options['services'], static::$supportedServices);
 
         $cacheDir = $this->environment->getPathToTemporaryDirectory() . '/Networkteam_Neos_Shariff';
-        \Neos\Utility\Files::createDirectoryRecursively($cacheDir);
+        Files::createDirectoryRecursively($cacheDir);
         $this->options['cache']['cacheDir'] = $cacheDir;
     }
 
     /**
      * @return Backend
      */
-    public function create()
+    public function create() : Backend
     {
         return new Backend($this->options);
     }

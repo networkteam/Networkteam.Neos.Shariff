@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Networkteam\Neos\Shariff\Controller;
 
 /***************************************************************
@@ -25,11 +27,11 @@ class ShariffController extends ActionController
     /**
      * @param string $url
      *
-     * @return string
+     * @return string|false
      */
-    public function countsAction($url = null)
+    public function countsAction(?string $url = null)
     {
-        $this->response->getHeaders()->set('Content-Type', 'application/json');
+        $this->response->setContentType('application/json');
 
         return json_encode($this->shariff->get($url));
     }
