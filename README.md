@@ -17,13 +17,12 @@ See the following table for the correct plugin version to choose:
 
 | Neos CMS | Plugin version |
 | -------- | -------------- |
-| >= 3.0   | 3.x            |
+| >= 4.0   | 4.x            |
+| >= 3.0 && < 5.0   | 3.x   |
 | < 3.0    | 2.x            |
 | < 2.0    | 1.x            |
 
 ## Configuration
-
-Including the package routes in your *global* `Routes.yaml` is no longer needed as of Flow 4.0.
 
 Configure the list of services to show in a `Settings.yaml` (e.g. in your site package):
 
@@ -35,7 +34,6 @@ Configure the list of services to show in a `Settings.yaml` (e.g. in your site p
               - WhatsApp
               - Twitter
               - Facebook
-              - GooglePlus
               - Pinterest
               - Mail
 
@@ -48,7 +46,7 @@ See `Configuration/Settings.yaml` for more information about possible options.
 This package contains a simple node type `Networkteam.Neos.Shariff:Shariff` that renders social
 share buttons via Shariff. Just add a new node of this type to a document in the Neos backend.
 
-### Usage via TypoScript
+### Usage via Fusion
 
 In your prototype define a property which renders the social plugins like this:
 
@@ -85,7 +83,6 @@ You can override them in your settings.yaml.
               ttl: 3600
             services:
     #          - Facebook
-    #          - GooglePlus
     #          - Twitter
     #          - LinkedIn
     #          - Reddit
@@ -102,7 +99,7 @@ If you want to extend the configuration just go like this:
             // data-example = 'value'
         }
     }
-    
+
 ## Using Pinterest
 
 In order to use a "Pin it" button in shariff pinterest won't grab an image of your page automatically.
