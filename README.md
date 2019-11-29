@@ -17,8 +17,9 @@ See the following table for the correct plugin version to choose:
 
 | Neos CMS | Plugin version |
 | -------- | -------------- |
-| >= 4.0   | 4.x            |
-| >= 3.0 && < 5.0   | 3.x   |
+| >= 4.3   | 5.x            |
+| < 5.0    | 4.x            |
+| < 4.0    | 3.x            |
 | < 3.0    | 2.x            |
 | < 2.0    | 1.x            |
 
