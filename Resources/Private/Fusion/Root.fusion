@@ -1,12 +1,4 @@
 prototype(Neos.Neos:Page) {
-    body.javascripts.shariff = Neos.Fusion:Tag {
-        tagName = 'script'
-
-        attributes.src = Neos.Fusion:ResourceUri {
-            path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.min.js'
-        }
-    }
-
     head.stylesheets.shariff = Neos.Fusion:Tag {
         tagName = 'link'
 
@@ -18,6 +10,14 @@ prototype(Neos.Neos:Page) {
             }
         }
     }
+
+    shariffJs = Neos.Fusion:Tag {
+        tagName = 'script'
+        attributes.src = Neos.Fusion:ResourceUri {
+            path = 'resource://Networkteam.Neos.Shariff/Public/shariff/build/shariff.min.js'
+        }
+    }
+    shariffJs.@position = 'before closingBodyTag'
 }
 
 prototype(Networkteam.Neos.Shariff:Shariff) < prototype(Neos.Fusion:Tag) {
