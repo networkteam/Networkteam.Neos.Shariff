@@ -1,5 +1,5 @@
 {
-    "name": "bbehrendt-mm/neos-shariff",
+    "name": "networkteam/neos-shariff",
     "type": "neos-plugin",
     "description": "Integrate shariff, social buttons with privacy",
     "license": "GPL-2.0-or-later",
